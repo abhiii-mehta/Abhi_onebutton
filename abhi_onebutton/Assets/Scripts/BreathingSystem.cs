@@ -3,41 +3,63 @@ using UnityEngine.UI;
 
 public class BreathingSystem : MonoBehaviour
 {
-    public Image stressBarFill; // Assign in Inspector (fill image)
-    public float holdDuration = 5f; // Time until max stress
-    private float stressTimer = 0f;
+    [Header("Breathing Settings")]
+    public float maxStress = 10f;
+    private float currentStress = 0f;
+
+    [Header("Breathing Key")]
+    public KeyCode holdBreathKey = KeyCode.LeftShift;
+
+    [Header("Stress Bar")]
+    public Image stressFillImage;
+
     private bool isHoldingBreath = false;
-    private bool isGameOver = false;
+    private bool monsterNearby = false;
 
-    void Update()
+    private void OnEnable()
     {
-        if (isGameOver) return;
+        MonsterEventManager.OnMonsterStateChanged += SetMonsterState;
+    }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+    private void OnDisable()
+    {
+        MonsterEventManager.OnMonsterStateChanged -= SetMonsterState;
+    }
+
+    private void SetMonsterState(bool isNear)
+    {
+        monsterNearby = isNear;
+    }
+
+    private void Update()
+    {
+        isHoldingBreath = Input.GetKey(holdBreathKey);
+
+        if (isHoldingBreath)
         {
-            isHoldingBreath = true;
-            stressTimer += Time.deltaTime;
+            currentStress += Time.deltaTime;
         }
         else
         {
-            isHoldingBreath = false;
-            stressTimer -= Time.deltaTime * 2f; // cooldown faster than buildup
+            currentStress -= Time.deltaTime * 1.5f;
         }
 
-        stressTimer = Mathf.Clamp(stressTimer, 0f, holdDuration);
+        currentStress = Mathf.Clamp(currentStress, 0f, maxStress);
 
-        // Update UI fill
-        if (stressBarFill != null)
+        if (stressFillImage != null)
         {
-            stressBarFill.fillAmount = stressTimer / holdDuration;
+            stressFillImage.fillAmount = currentStress / maxStress;
         }
 
-        // If over limit, trigger game over (or panic later)
-        if (stressTimer >= holdDuration)
+        if (currentStress >= maxStress)
         {
-            Debug.Log("You panicked!");
-            isGameOver = true;
-            // Call GameManager.GameOver() here if hooked up
+            Debug.Log("Player passed out!");
         }
+
+        if (monsterNearby && !isHoldingBreath)
+        {
+            Debug.Log(" You breathed while the monster was near!");
+        }
+
     }
 }

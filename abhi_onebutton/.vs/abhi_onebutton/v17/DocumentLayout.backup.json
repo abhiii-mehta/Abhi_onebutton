@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\SuSe25\\GameAWeek\\abhi_onebutton\\abhi_onebutton\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BAC1BC37-340C-2146-E29F-FCAE3B77F40C}|Assembly-CSharp.csproj|d:\\suse25\\gameaweek\\abhi_onebutton\\abhi_onebutton\\assets\\scripts\\hidingspotmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BAC1BC37-340C-2146-E29F-FCAE3B77F40C}|Assembly-CSharp.csproj|D:\\SuSe25\\GameAWeek\\abhi_onebutton\\abhi_onebutton\\assets\\scripts\\hidingspotmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BAC1BC37-340C-2146-E29F-FCAE3B77F40C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hidingspotmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BAC1BC37-340C-2146-E29F-FCAE3B77F40C}|Assembly-CSharp.csproj|d:\\suse25\\gameaweek\\abhi_onebutton\\abhi_onebutton\\assets\\scripts\\breathingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BAC1BC37-340C-2146-E29F-FCAE3B77F40C}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\breathingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +18,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BreathingSystem.cs",
+              "DocumentMoniker": "D:\\SuSe25\\GameAWeek\\abhi_onebutton\\abhi_onebutton\\Assets\\Scripts\\BreathingSystem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\BreathingSystem.cs",
+              "ToolTip": "D:\\SuSe25\\GameAWeek\\abhi_onebutton\\abhi_onebutton\\Assets\\Scripts\\BreathingSystem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\BreathingSystem.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T09:52:10.519Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +41,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\HidingSpotManager.cs",
               "ToolTip": "D:\\SuSe25\\GameAWeek\\abhi_onebutton\\abhi_onebutton\\Assets\\Scripts\\HidingSpotManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\HidingSpotManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T09:33:42.05Z",
               "EditorCaption": ""

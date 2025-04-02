@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 89607206}
   - component: {fileID: 89607205}
   - component: {fileID: 89607204}
+  - component: {fileID: 89607207}
   m_Layer: 5
   m_Name: HidingSpot3
   m_TagString: Untagged
@@ -191,6 +192,18 @@ RectTransform:
   m_AnchoredPosition: {x: -23.321533, y: 58.5347}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &89607207
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89607203}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &194964056
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +215,7 @@ GameObject:
   - component: {fileID: 194964057}
   - component: {fileID: 194964059}
   - component: {fileID: 194964058}
+  - component: {fileID: 194964060}
   m_Layer: 5
   m_Name: HidingSpot4
   m_TagString: Untagged
@@ -263,6 +277,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194964056}
   m_CullTransparentMesh: 1
+--- !u!225 &194964060
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194964056}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &554870309
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +323,54 @@ Transform:
   - {fileID: 89607206}
   - {fileID: 194964057}
   m_Father: {fileID: 2051060510}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &670154153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670154155}
+  - component: {fileID: 670154154}
+  m_Layer: 0
+  m_Name: MonsterEventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &670154154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670154153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58cc76b28dfb2ba47ae6e26be0ad8d31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeBetweenEvents: 5
+  maxTimeBetweenEvents: 12
+  dangerDuration: 3
+  monsterIsNear: 0
+--- !u!4 &670154155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670154153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 740.7437, y: 635.07367, z: -12.675769}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &694967308
 PrefabInstance:
@@ -508,11 +582,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ba701635aa95146a0dac69e5fec127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hidingSpotImages:
-  - {fileID: 1933977356}
-  - {fileID: 899567500}
-  - {fileID: 89607204}
-  - {fileID: 194964058}
+  hidingSpotGroups:
+  - {fileID: 1933977357}
+  - {fileID: 899567501}
+  - {fileID: 89607207}
+  - {fileID: 194964060}
+  fadeDuration: 0.5
 --- !u!4 &772214637
 Transform:
   m_ObjectHideFlags: 0
@@ -539,6 +614,7 @@ GameObject:
   - component: {fileID: 899567498}
   - component: {fileID: 899567499}
   - component: {fileID: 899567500}
+  - component: {fileID: 899567501}
   m_Layer: 5
   m_Name: HidingSpot2
   m_TagString: Untagged
@@ -600,6 +676,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!225 &899567501
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899567497}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1448681553
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +867,7 @@ GameObject:
   - component: {fileID: 1933977354}
   - component: {fileID: 1933977355}
   - component: {fileID: 1933977356}
+  - component: {fileID: 1933977357}
   m_Layer: 5
   m_Name: HidingSpot1
   m_TagString: Untagged
@@ -840,6 +929,18 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!225 &1933977357
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933977353}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1951192171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1159,8 +1260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acee99f98e56dcc4a99f90b23f452316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stressBarFill: {fileID: 703830072}
-  holdDuration: 5
+  maxStress: 10
+  holdBreathKey: 304
+  stressFillImage: {fileID: 703830072}
 --- !u!4 &2099992804
 Transform:
   m_ObjectHideFlags: 0
@@ -1185,3 +1287,4 @@ SceneRoots:
   - {fileID: 1953695638}
   - {fileID: 772214637}
   - {fileID: 2099992804}
+  - {fileID: 670154155}

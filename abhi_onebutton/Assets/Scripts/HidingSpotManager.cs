@@ -1,14 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class HidingSpotManager : MonoBehaviour
 {
-    public RawImage[] hidingSpotImages; // Assign in Inspector
-    private int currentIndex = 0;       // Tracks which hiding spot you're in
+    public CanvasGroup[] hidingSpotGroups; 
+    private int currentIndex = 0;
+    public float fadeDuration = 0.5f;
 
     private void Start()
     {
-        ShowOnlyCurrentSpot();
+        for (int i = 0; i < hidingSpotGroups.Length; i++)
+        {
+            hidingSpotGroups[i].alpha = (i == currentIndex) ? 1 : 0;
+            hidingSpotGroups[i].interactable = (i == currentIndex);
+            hidingSpotGroups[i].blocksRaycasts = (i == currentIndex);
+        }
     }
 
     private void Update()
@@ -17,26 +24,48 @@ public class HidingSpotManager : MonoBehaviour
         {
             if (currentIndex > 0)
             {
-                currentIndex--;
-                ShowOnlyCurrentSpot();
+                int nextIndex = currentIndex - 1;
+                StartCoroutine(FadeTransition(currentIndex, nextIndex));
+                currentIndex = nextIndex;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
-            if (currentIndex < hidingSpotImages.Length - 1)
+            if (currentIndex < hidingSpotGroups.Length - 1)
             {
-                currentIndex++;
-                ShowOnlyCurrentSpot();
+                int nextIndex = currentIndex + 1;
+                StartCoroutine(FadeTransition(currentIndex, nextIndex));
+                currentIndex = nextIndex;
             }
         }
     }
 
-    private void ShowOnlyCurrentSpot()
+    private IEnumerator FadeTransition(int fromIndex, int toIndex)
     {
-        for (int i = 0; i < hidingSpotImages.Length; i++)
+        float timer = 0f;
+
+        CanvasGroup from = hidingSpotGroups[fromIndex];
+        CanvasGroup to = hidingSpotGroups[toIndex];
+
+        to.gameObject.SetActive(true);
+
+        while (timer < fadeDuration)
         {
-            hidingSpotImages[i].gameObject.SetActive(i == currentIndex);
+            float t = timer / fadeDuration;
+            from.alpha = Mathf.Lerp(1, 0, t);
+            to.alpha = Mathf.Lerp(0, 1, t);
+            timer += Time.deltaTime;
+            yield return null;
         }
+
+        from.alpha = 0;
+        from.interactable = false;
+        from.blocksRaycasts = false;
+
+        to.alpha = 1;
+        to.interactable = true;
+        to.blocksRaycasts = true;
+
+        from.gameObject.SetActive(false);
     }
 }
